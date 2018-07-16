@@ -31,7 +31,7 @@ categories: jekyll update
 1. `layout`值固定为`post`
 2. `title`为本篇博客的标题，会在列表页及内容详情页展示
 3. `date`为本篇博客的完成日期，格式为`yyyy-MM-dd HH:mm:ss Z`(带时区)
-4. `categories`值固定指定为`jekyll update`(frankly我也不知道为什么)
+4. `categories`值以空格分隔的方式指定多级目录，与生成后的静态URL相关，如`jekyll update`对应/jekyll/update/
 
 ### 内容区
 
@@ -46,8 +46,9 @@ MacOS: [Typora](https://www.typora.io/)
 本博客采用了较为简单的Jekyll主题，目录结构也很简单，如下所示，只要知道将自己写的Markdown格式的博客文件放置于`_posts`目录下即可。
 
 ~~~
-_posts 博客源文件(Markdown格式)
-_site  生成的静态文件(已被gitignore)
+_posts   博客源文件(Markdown格式)
+_layouts 布局格式，对应元数据中指定的layout项
+_site    生成的静态文件(已被gitignore)
 ~~~
 
 ## 发布
