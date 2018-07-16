@@ -1,0 +1,50 @@
+---
+layout: default
+---
+<article class="post container">
+	<div class="post-meta">
+		<span class="post-meta-span date">{{ page.date | date:"%Y %B %d" }}</span>
+		{% if page.tags.size > 0 %}
+		<span class="post-meta-span tag">{{ page.tags | join: ', ' }}</span>
+		{% endif %}
+	</div>
+
+	<h1 class="post-title">{{ page.title }}</h1>
+	{{ content }}
+</article>
+
+<div class="post-share">
+	<div class="container">
+		<a href="https://twitter.com/share?url={{ page.url | prepend: site.baseurl | prepend: site.url }}&text={{ page.title }}" target="_blank" class="post-share-icon twitter"></a>
+		<a href="https://www.evernote.com/clip.action?url={{ page.url | prepend: site.baseurl | prepend: site.url }}&title={{ page.title }}" target="_blank" class="post-share-icon evernote"></a>
+		<a href="http://service.weibo.com/share/share.php?url={{ page.url | prepend: site.baseurl | prepend: site.url }}&title={{ page.title }}" target="_blank" class="post-share-icon weibo"></a>
+	</div>
+</div>
+
+{% if site.disqus_shortname %}
+<div class="comment container">
+	<div id="disqus_thread">
+		<a href=""></a>
+	</div>
+</div>
+{% endif %}
+
+<!-- Gitalk begin -->
+<!-- Link Gitalk 的支持文件  -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script> 
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        // gitalk的主要参数
+        clientID: 'c636d1c983e2a38335c5',
+        clientSecret: '398a8171f5cd9e5ea2171026f99a3044186e1992',
+		repo: 'xspurs.github.io',
+        owner: 'xspurs',
+        admin: ['xspurs'],
+        id: window.location.pathname,
+
+    });
+    gitalk.render('gitalk-container');
+</script> 
+<!-- Gitalk end -->
